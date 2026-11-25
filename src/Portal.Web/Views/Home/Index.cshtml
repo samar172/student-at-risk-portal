@@ -1,0 +1,16 @@
+@using Portal.Domain
+@{
+    ViewData["Title"] = "Dashboard";
+    var role = User.IsInRole(Roles.Administrator) ? Roles.Administrator
+             : User.IsInRole(Roles.Counsellor) ? Roles.Counsellor
+             : User.IsInRole(Roles.Faculty) ? Roles.Faculty
+             : User.IsInRole(Roles.Hod) ? Roles.Hod : "No role assigned";
+}
+
+<h1 class="h3">Welcome</h1>
+<p class="text-muted">Signed in as <strong>@User.Identity?.Name</strong> (@role)</p>
+
+<div class="alert alert-info">
+    The risk dashboards, alerts, counsellor notes and interventions are being built in the next phases.
+    This is the project skeleton: authentication, roles and the data model are in place.
+</div>
